@@ -34,14 +34,14 @@ class neutron::services::bgpvpn (
 ) {
 
   include ::neutron::params
- 
+
   #This package just include the service API
   ensure_resource( 'package', 'python-networking-bgpvpn', {
     ensure => $package_ensure,
     name   => $::neutron::params::bgpvpn_plugin_package,
     tag    => ['openstack', 'neutron-package'],
   })
- 
+
   if !is_service_default($service_providers) {
     # default value is uncommented setting, so we should not touch it at all
     neutron_bgpvpn_service_config { 'service_providers/service_provider':
