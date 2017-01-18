@@ -4,7 +4,7 @@ Puppet::Type.type(:neutron_bgpvpn_service_config).provide(
 ) do
 
   def self.file_path
-    '/etc/neutron/neutron.conf'
+    '/etc/neutron/networking_bgpvpn.conf'
   end
 
   # added for backwards compatibility with older versions of inifile
