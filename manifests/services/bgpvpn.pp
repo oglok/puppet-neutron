@@ -47,4 +47,13 @@ class neutron::services::bgpvpn (
     neutron_bgpvpn_service_config { 'service_providers/service_provider':
       value => $service_providers,
     }
+  }
+
+  resources { 'neutron_bgpvpn_service_config':
+    purge => $purge_config,
+  }
+
+  neutron_config {
+    'DEFAULT/service_plugins': value value => join($service_plugins, ',')
+  }
 }
